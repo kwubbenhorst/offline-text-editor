@@ -25,8 +25,16 @@ export default class {
     // When the editor is ready, set the value to whatever is stored in indexeddb.
     // Fall back to localStorage if nothing is stored in indexeddb, and if neither is available, set the value to header.
     getDb().then((data) => {
-      console.info('Loaded data from IndexedDB, injecting into editor');
-      this.editor.setValue(data || localData || header);
+      console.info('Loaded data from IndexedDB:', data);
+      // Convert the array to a string
+      const stringData = data.join('');
+      console.info('Injecting into editor');
+      console.log('Value of data:', data);
+      console.log('Value of localData:', localData);
+      console.log('Value of header:', header);
+      console.log('Before setting value in CodeMirror:', stringData || localData || header);
+      this.editor.setValue(stringData || localData || header);
+      console.log('After setting value in CodeMirror:', this.editor.getValue());
     });
 
     this.editor.on('change', () => {
