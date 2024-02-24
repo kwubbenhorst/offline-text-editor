@@ -39,7 +39,7 @@ export const getDb = async () => {
     console.log('Retrieving content from IndexedDB:', result);
     await tx.done;
 
-    return result.map(item => item.content);
+    return result.map(item => item.content)[result.length-1]; //grab the last item from the array of strings to be displayed, adds a version history
   } catch (error) {
     console.error('getDb not implemented:', error);
     return []; // Return an empty array

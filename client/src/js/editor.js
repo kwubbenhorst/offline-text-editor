@@ -27,7 +27,7 @@ export default class {
     getDb().then((data) => {
       console.info('Loaded data from IndexedDB:', data);
       // Convert the array to a string
-      const stringData = data.join('');
+      const stringData = data;
       console.info('Injecting into editor');
       console.log('Value of data:', data);
       console.log('Value of localData:', localData);
