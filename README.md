@@ -23,7 +23,8 @@ Developing this project was challenging, as it used new dependencies designed to
 
 One feature that perhaps makes this project stand out is the way data is stored and retrieved (see database.js and editor.js). IndexedDB, as the name suggests, assigns an index to each entry and one way to grab the stored content would be to focus on the entry at the first index only, replacing the data at this index every time it is updated. However my approach of saving the whole stringified array and displaying only the last one to the view creates a version history which might guard against data loss. In the future it might be nice to make the text editor a little prettier. The CSS file and header were given in the source-code and were not adapted as part of the refactor. The stylings are fairly basic. More buttons to save when done entering or editing text rather than triggering the store by losing focus on the editor might also make for a more intuitive UI. In testing the installation icon in the address bar works for displaying the prompt, but the install button does not always work. This is the case when the app has already been installed. For it to work again the app has to be uninstalled and the cached data cleared. I am hopeful that this will not be an issue in the deployed version. According to the Lighthouse audit, the application is now a bona fide PWA and scores highly on all metrics (audit was run in an incognito window in the development environment).
 
-ADD SCREENSHOT IN HERE
+![Screen Shot 2024-02-25 at 3 50 47 AM](https://github.com/kwubbenhorst/offline-text-editor/assets/140316693/b4af443d-6c60-45fc-9d18-b6bae116b44c)
+
 
 This app has been deployed with Heroku and Render and is ready to be used on the world wide web. 
 Here is the URL for the Heroku App:  
