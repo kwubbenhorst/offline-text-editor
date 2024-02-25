@@ -25,11 +25,8 @@ One feature that perhaps makes this project stand out is the way data is stored 
 
 ![Screen Shot 2024-02-25 at 3 50 47 AM](https://github.com/kwubbenhorst/offline-text-editor/assets/140316693/b4af443d-6c60-45fc-9d18-b6bae116b44c)
 
-
-This app has been deployed with Heroku and Render and is ready to be used on the world wide web. 
-Here is the URL for the Heroku App:  
-Here is the URL for the Render App:
-(Render, unlike Heroku, offers a free tier of web-hosting, but it does spin down apps that are not being used after 15 minutes for free accounts. So if using the Render link, please be patient as the app may need time to "spin up" again, before functioning normally).
+This app has been deployed with Heroku. Here is the URL:
+https://off-line-text-editor-2797b90d319f.herokuapp.com/ 
 
 ## Installation
 In the test environment, the user needs only to enter npm start in the terminal for the server to be started and the webpack to be created. The only reason a user would need to revert to the pre-deployment version might be to manually adjust the time set for cached assets to be considered fresh. It is currently set to 7 days, but if our electrical engineer is on the oil rig for 3 weeks, she might want to reset that to 21 days. In terms of the deployed app, the user need only navigate to the URL within any internet browser. If they choose, they may then hit the install button or the install icon within the address bar, and be able to access and use the app directly from their device's home screen or app launcher.
