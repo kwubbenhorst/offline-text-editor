@@ -1,3 +1,11 @@
+// This service worker script uses Workbox to cache assets, deliver efficient strategies for serving content and is what gives the application its offline functionality.
+// This file implements caching strategies for various assets, such as the HTML of the page, CSS, JS, Worker files, and logo image, to ensure a reliable and fast UX, even offline.
+// Workbox will precache assets specified in the __WB_MANIFEST during the service worker installation. The rules given here will govern caching lifecycle, expiration, and freshness of cached assets.
+// This script works on the client side of the code together with the CodeMirror editor and components responsible for data storage and UI.
+// There was source-code given in this file, but the code in the latter half is all mine. 
+// I registered the caching route for CSS, JS, and Worker files using the CacheFirst strategy. CacheFirst will serve cached assets first and will get fresh assets from the network only if expiration has been reached or if assets are not present.  
+// CacheableResponsePlugin and ExpirationPlugin, control the caching behaviour.
+
 const { offlineFallback, warmStrategyCache } = require('workbox-recipes');
 const { CacheFirst } = require('workbox-strategies');
 const { registerRoute } = require('workbox-routing');
@@ -7,7 +15,7 @@ const { precacheAndRoute } = require('workbox-precaching/precacheAndRoute');
 
 precacheAndRoute(self.__WB_MANIFEST);
 
-//Cache HTML pages with CacheFirst strategy 
+// Cache HTML pages with CacheFirst strategy 
 const pageCache = new CacheFirst({
   cacheName: 'page-cache',
   plugins: [

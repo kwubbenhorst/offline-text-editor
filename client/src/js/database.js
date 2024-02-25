@@ -1,3 +1,8 @@
+// This database.js file is responsible for managing the IndexedDB database used by the application. It initializes the database and provides methods to store and retrieve content. 
+// There was source-code provided for this file but I defined the putDb and getDb functions -- the logic for storing and retrieving content. Here are the specific changes made:
+// PutDb accepts content and adds it to the 'jate' object store.
+// GetDb retrieves all content from the 'jate' object store. The latest content is extracted from the result array to display upon refresh.
+
 import { openDB } from 'idb';
 
 const initdb = async () =>

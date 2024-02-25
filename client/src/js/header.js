@@ -1,3 +1,5 @@
+// This file contains the ASCII art header for the text editor, displayed upon refresh. This file was given in the source-code.
+
 const header = `
 /*
        _____  ____________

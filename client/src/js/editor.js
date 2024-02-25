@@ -1,4 +1,10 @@
-// Import methods to save and get data from the indexedDB database in './database.js'
+// This editor.js file handles the initialization of the CodeMirror editor and manages the interactions with IndexedDB. 
+// On editor instantiation, data is loaded from IndexedDB using the getDb method. The retrieved data is then injected into the CodeMirror editor.
+// There were errors showing in the console when I ran the source-code version. When I converted the data array to a string CodeMirror did not complain anymore 
+// The saving of updated data to IndexedDB from the editor using the putDb method is triggered by the blur event (the user clicks out of the editor/editor loses focus)
+
+
+// Import the methods we defined in database.js to save and get data from the indexedDB
 import { getDb, putDb } from './database';
 import { header } from './header';
 
@@ -22,8 +28,8 @@ export default class {
       tabSize: 2,
     });
 
-    // When the editor is ready, set the value to whatever is stored in indexeddb.
-    // Fall back to localStorage if nothing is stored in indexeddb, and if neither is available, set the value to header.
+    // When the editor is ready, set the value to whatever is stored in indexedDB.
+    // Fall back to localStorage if nothing is stored in indexedDB, and if neither is available, set the value to header.
     getDb().then((data) => {
       console.info('Loaded data from IndexedDB:', data);
       // Convert the array to a string
@@ -41,7 +47,7 @@ export default class {
       localStorage.setItem('content', this.editor.getValue());
     });
 
-    // Save the content of the editor when the editor itself is loses focus
+    // Save the content of the editor when the editor itself loses focus
     this.editor.on('blur', () => {
       console.log('The editor has lost focus');
       putDb(localStorage.getItem('content'));
