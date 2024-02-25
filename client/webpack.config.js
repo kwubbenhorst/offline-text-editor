@@ -1,10 +1,13 @@
+// This webpack configuration file bundles and optimizes the client-side code in the application.
+// It specifies entry points, output configurations, plugins for HTML generation, PWA manifest creation, and Workbox service worker injection, and includes loaders for CSS and Babel to enhance the build process.
+// There was source-code given for this file, but the workbox plugin configurations for a service worker and manifest file were added by me.
+// The service worker is what allows for offline functionality. Entry points for database and editor are what allow for compiling of these files into the distribution bundle. The webmanifest is also injected here -- satisfying one of the three criteria making this a PWA application.
+// I also did the addition of the CSS loaders and babel to webpack. Babel is what allows for the use of next-gen JavaScript. 
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
-
-// Added and configured workbox plugins for a service worker and manifest file.
-// Added CSS loaders and babel to webpack.
 
 module.exports = () => {
   return {
